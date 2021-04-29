@@ -10,7 +10,7 @@ while(even_odd){
     
     if(userChoise != "pari" && userChoise != "dispari"){
     
-        confirm("puoi scegliere solo pari o dispari");
+        confirm("Devi scrivere pari o dispari");
     
         even_odd = true;
         
@@ -22,7 +22,7 @@ while(even_odd){
 
 
 while(ifNumber){
-    var numberChoise = prompt("Inserisci un numero da 1 a 5");
+    var numberChoise = Number(prompt("Inserisci un numero da 1 a 5"));
     
     if (isNaN(numberChoise) || numberChoise < 1 || numberChoise > 5){
     
@@ -44,14 +44,50 @@ while(ifNumber){
  */
 
 function randomNumber (){
-    var number = Math.ceil(Math.random() *5);
-    console.log(number);
+    number = Math.ceil(Math.random() *5);
     return number;
 }
 
 var pcNumber = randomNumber();
-
-
+console.log(pcNumber);
 
 // Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+
+/**
+ * ### Controlla se un numero è pari o dispari
+ * Questa funzione accetta due numeri in ingresso,
+ * li somma e controlla se il risultato è pari o dispari
+ * @param {number} num1 - il primo numero da sommare
+ * @param {number} num2 - il secondo numero da sommare
+ * @returns {string} - restituisce una stringa contenente la parola Pari o Dispari
+ */
+
+function resultEvenOdd (num1, num2){
+    var somma = num1 + num2;
+
+    var somma = somma % 2;
+
+    console.log(somma);
+    
+    if (somma == 0) {
+        var result = "Pari";
+        
+    } else {
+        var result = "Dispari";
+    }
+    return result;
+}
+
 // Dichiariamo chi ha vinto
+
+var result = resultEvenOdd(numberChoise, pcNumber);
+
+var userChoise = userChoise.charAt(0).toUpperCase() + userChoise.slice(1);
+
+var message = document.getElementById("result_even_odd");
+
+if (userChoise === result){
+    message.innerHTML = `Hai scelto ${userChoise} è uscito ${numberChoise + pcNumber}. Hai Vinto!`;
+} else {
+    message.innerHTML = `Hai scelto ${userChoise} è uscito ${numberChoise + pcNumber}. Hai Perso!`;
+}
