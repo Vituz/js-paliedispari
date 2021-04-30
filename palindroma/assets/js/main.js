@@ -19,13 +19,15 @@ while(play){
 
     function ifPalindroma(parola){
     
-        var parola = parola.toLowerCase();  
+        // var parola = parola.toLowerCase();  
     
-        var parola_divisa = parola.split("");
+        // var parola_divisa = parola.split("");
     
-        var parola_reverse = parola_divisa.reverse();
+        // var parola_reverse = parola_divisa.reverse();
     
-        var palindroma = parola_reverse.join("");
+        // var palindroma = parola_reverse.join("");
+
+        var parola_reverse = parola.toLowerCase().split("").reverse().join("");
     
         if (parola === palindroma){
             result =`${parola} è una parola palindroma`;
